@@ -1,0 +1,9 @@
+RAW:
+cmd: twarc search TOPIC > raw_tweets.jsonl
+    - tweet counts: # (before removal of retweets)
+        wc -l < raw_tweets.jsonl
+
+retweets removal -
+cmd: jq -r ' . | select(.retweeted_status == null)' raw_tweets.jsonl > raw_noretweets.jsonl
+    - tweet counts: # (JSON linining auto beautified; has reduced on count of id's)
+        wc -l < raw_noretweets.jsonl
