@@ -1,0 +1,3 @@
+twarc
+python-dotenv
+wordcloud
