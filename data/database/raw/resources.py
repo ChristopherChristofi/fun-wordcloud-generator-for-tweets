@@ -1,0 +1,1 @@
+raw_database_naming = "raw_extraction.db"

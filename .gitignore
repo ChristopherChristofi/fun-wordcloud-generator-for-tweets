@@ -22,6 +22,12 @@ __pycache__
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-raw_tweets.jsonl
+
+*.db
+
+savedtestdata/
+test.jsonl
+newtest.jsonl
+newtestcsv.csv
 
 twarc.*

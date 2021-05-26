@@ -1,3 +1,4 @@
 twarc
 python-dotenv
 wordcloud
+SQLAlchemy
