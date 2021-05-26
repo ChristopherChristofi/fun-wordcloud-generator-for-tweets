@@ -1,13 +1,6 @@
 import subprocess
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
-
-topic = os.getenv("TAG") or "Football"
-raw_searched_data = os.getenv("RAW_JSON") or "./data/raw_data/test.jsonl"
-raw_processed_data = "./data/raw_data/newtest.jsonl"
-raw_csv_data = "./data/raw_data/newtestcsv.csv"
+from resources import topic
+from data.resources import raw_searched_data, raw_processed_data, raw_csv_data
 
 def raw_search_twitter():
     """Function that utilises twarc package to search twitter API for tweets."""
