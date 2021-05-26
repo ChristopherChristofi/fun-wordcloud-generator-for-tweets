@@ -25,9 +25,9 @@ yarn-error.log*
 
 *.db
 
+*.jsonl
+*.json
+*.csv
 savedtestdata/
-test.jsonl
-newtest.jsonl
-newtestcsv.csv
 
 twarc.*

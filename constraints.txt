@@ -2,3 +2,4 @@ twarc
 python-dotenv
 wordcloud
 SQLAlchemy
+petl
