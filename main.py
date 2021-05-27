@@ -1,11 +1,11 @@
 from resources import raw_search_msg, raw_retweet_process_msg, raw_csv_conversion_msg
-from data.process.raw.utilities import raw_search_twitter, raw_remove_retweets, raw_csv_conversion
+from process.raw.utilities import raw_search_twitter, raw_remove_retweets, raw_csv_conversion
 
 # Database configuration module
-from data.database.raw.configuration import raw_build
+from database.raw.configuration import raw_build
 
 # Database ETL utility module
-from data.database.raw.utilities import load_raw_data
+from database.raw.utilities import load_raw_data
 
 def options():
     """Function holding program option selections"""

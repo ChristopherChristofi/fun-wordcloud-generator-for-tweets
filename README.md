@@ -6,6 +6,8 @@ Simple program that interacts with the twitter API. Retrieved using the twarc pa
 
 ## Dependencies:
 
+- petl
+- SQLAlchemy
 - jq
 - twarc
 - python-dotenv
@@ -27,8 +29,7 @@ pip install -r requirements.txt
 ```
 
 3. **Quick - Run program**
-In Windows environment.
 
 ```sh
-python raw_process.py
+python main.py
 ```
