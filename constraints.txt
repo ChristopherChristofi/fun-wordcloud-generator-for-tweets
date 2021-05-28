@@ -3,3 +3,4 @@ python-dotenv
 wordcloud
 SQLAlchemy
 petl
+arrow

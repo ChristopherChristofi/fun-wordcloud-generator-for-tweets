@@ -10,3 +10,4 @@ raw_csv_data = "./data/raw_data/raw_processed_tweets.csv"
 raw_database_path_config = "database/raw/raw_extraction.db"
 raw_database_path = "./database/raw/raw_extraction.db"
 raw_datatable_headers = ['user_id', 'tweet_id', 'tweet_date', 'tweet_text', 'tweet_lang']
+raw_tablename = "rawtwittertweet"

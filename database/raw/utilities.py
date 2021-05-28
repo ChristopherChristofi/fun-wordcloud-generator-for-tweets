@@ -1,6 +1,6 @@
 import petl as etl
 import sqlite3
-from data.resources import raw_csv_data, raw_datatable_headers, raw_database_path
+from data.resources import raw_csv_data, raw_datatable_headers, raw_database_path, raw_tablename
 
 def load_raw_data():
     """Function to load raw extracted data into the configured raw database."""
@@ -12,11 +12,11 @@ def load_raw_data():
 
         return table
 
-    raw_data = extract_raw_csv()
+    raw_dataframe = extract_raw_csv()
 
     conn = sqlite3.connect(raw_database_path)
 
-    etl.todb(raw_data, conn, 'rawtwittertweet')
+    etl.todb(raw_dataframe, conn, raw_tablename)
 
     print("Data loaded.")
 
