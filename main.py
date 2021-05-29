@@ -6,6 +6,7 @@ from process.stage.process import commit_stage_processing
 
 # Database configuration module
 from database.raw.configuration import raw_build
+from database.stage.configuration import stage_build
 # Database ETL utility module
 from database.raw.utilities import load_raw_data
 
@@ -57,6 +58,11 @@ while start == True:
     if input_option == 6:
         print("Processing stage data.")
         commit_stage_processing(1)
+    if input_option == 7:
+        # Creates database
+        print("Building Stage Extraction Database.")
+        # Pass a true value to initiate raw_build order
+        stage_build(1)
 
     if input_option == 0:
         # Exits program

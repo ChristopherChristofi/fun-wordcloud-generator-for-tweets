@@ -14,11 +14,11 @@ class RawTwitterTweet(Base):
     __tablename__= tablename
 
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, nullable=False)
-    tweet_id = Column(Integer, nullable=False)
-    tweet_date = Column(String(250), nullable=False)
-    tweet_text = Column(String(250))
-    tweet_lang = Column(String(250))
+    user_id = Column(Integer)
+    tweet_id = Column(Integer)
+    tweet_date = Column(String)
+    tweet_text = Column(String)
+    tweet_lang = Column(String)
 
 def raw_build(run=0):
     """Function that initiates the build order of the database for raw datasets."""
@@ -29,5 +29,3 @@ def raw_build(run=0):
         Base.metadata.create_all(engine)
 
         print("Database created.")
-
-raw_build()
