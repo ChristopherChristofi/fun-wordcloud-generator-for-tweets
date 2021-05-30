@@ -1,9 +1,9 @@
 import petl as etl
 import sqlite3
 from data.resources import raw_database_path, raw_tablename
-from process.stage.utilities import str_conversion, reformat_date, tweet_deduplicate
+from process.stage.utilities import str_conversion, reformat_date, tweet_deduplicate, integrate_staging_csv_conversion
 
-def stage_processing(table):
+def stage_processing(csv_convert, table):
 
     """Function that preprocesses streamed data: converts id's to string from integer,
     reformats the data parameter, and ensures deduplication of tweet_id"""
@@ -14,8 +14,6 @@ def stage_processing(table):
 
         conversion_table = str_conversion(table)
 
-        print("ID data type (int => str) conversion complete.")
-
         return conversion_table
 
 
@@ -25,8 +23,6 @@ def stage_processing(table):
 
         date_table = reformat_date(table)
 
-        print("Date reformatted")
-
         return date_table
 
     def deduplication_process (table):
@@ -34,8 +30,6 @@ def stage_processing(table):
         """Function that calls the deduplication utility function"""
 
         deduplicated_table = tweet_deduplicate(table)
-
-        print("Deduplication complete. Tweet_id row copy removed.")
 
         return deduplicated_table
 
@@ -51,10 +45,14 @@ def stage_processing(table):
 
     print(table)
 
-def commit_stage_processing(process=0):
+    if csv_convert == True:
+
+        integrate_staging_csv_conversion(table)
+
+def commit_stage_processing(csv_convert=0, process=0):
 
     """Function that, when True, reconnects to the database and iniates the processing of
-    the now staging data"""
+    raw staging data"""
 
     raw_db = raw_database_path
     raw_table = raw_tablename
@@ -68,4 +66,4 @@ def commit_stage_processing(process=0):
 
         # print(row_count)
 
-        stage_processing(processing_table)
+        stage_processing(csv_convert, processing_table)

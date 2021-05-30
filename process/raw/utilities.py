@@ -13,7 +13,6 @@ def raw_search_twitter():
         search_twitter_cmd
         ,shell=True
         )
-    print("Search complete. Raw data saved: {filename}".format(filename=raw_searched_data))
 
 def raw_remove_retweets():
     """Function utilising the jq package to parse retrieved twitter data: removing retweets and non-english language tweets in bash environment."""
@@ -28,7 +27,6 @@ def raw_remove_retweets():
         ,"-c"
         ,raw_remove_retweet_cmd
     ])
-    print("Retweets removed from {filename}.".format(filename=raw_searched_data))
 
 def raw_csv_conversion():
     """Function that converts the processed data into a csv file in a bash environment."""
@@ -46,4 +44,3 @@ def raw_csv_conversion():
         ,"-c"
         ,raw_csv_conversion_cmd
     ])
-    print("CSV file created")

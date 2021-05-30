@@ -27,5 +27,3 @@ def raw_build(run=0):
         engine = create_engine(raw_database)
 
         Base.metadata.create_all(engine)
-
-        print("Database created.")

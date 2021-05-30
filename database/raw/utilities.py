@@ -17,6 +17,3 @@ def load_raw_data():
     conn = sqlite3.connect(raw_database_path)
 
     etl.todb(raw_dataframe, conn, raw_tablename)
-
-    print("Data loaded.")
-

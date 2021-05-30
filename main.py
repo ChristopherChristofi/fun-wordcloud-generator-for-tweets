@@ -20,7 +20,9 @@ def options():
     print('[4] Build Raw Database')
     print('[5] Load raw processed CSV data into database')
     print('\nSTAGE Data Options:\n')
-    print('[6] Initiate stage processing: type conversion, date refomatting, deduplication')
+    print('[6] View stage processing: type conversion, date refomatting, deduplication')
+    print('[7] Convert processed data to CSV (Tweet, User, Date)')
+    print('[8] Build Staging Database')
     print('\n[101] To reprint options')
     print('[0] To exit program')
 
@@ -42,23 +44,31 @@ while start == True:
         # Initiates basic raw data processing
         print(raw_retweet_process_msg)
         raw_remove_retweets()
+        print("Initial raw data filter tranformation complete.")
     if input_option == 3:
         # Converts raw data json to csv
         print(raw_csv_conversion_msg)
         raw_csv_conversion()
+        print("Raw data converted to CSV format")
     if input_option == 4:
         # Creates database
         print("Building Raw Extraction Database.")
         # Pass a true value to initiate raw_build order
         raw_build(1)
+        print("Raw Database Built.")
     if input_option == 5:
         # Loads raw csv data into raw database
         print("Loading raw processed data into Raw Extraction Database.")
         load_raw_data()
+        print("Raw data loaded.")
     if input_option == 6:
         print("Processing stage data.")
-        commit_stage_processing(1)
+        commit_stage_processing(csv_convert=0, process=1)
     if input_option == 7:
+        print("Converting processed stage data to CSV.")
+        commit_stage_processing(csv_convert=1, process=1)
+        print("Converted to CSV complete.")
+    if input_option == 8:
         # Creates database
         print("Building Stage Extraction Database.")
         # Pass a true value to initiate raw_build order
