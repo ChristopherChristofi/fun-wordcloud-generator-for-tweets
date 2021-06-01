@@ -9,8 +9,10 @@ Simple program that interacts with the twitter API. Retrieved using the twarc pa
 - petl
 - arrow
 - SQLAlchemy
+- SQLAlchemy-Utils
 - jq
 - twarc
+- psycopg2
 - python-dotenv
 - wordcloud
 

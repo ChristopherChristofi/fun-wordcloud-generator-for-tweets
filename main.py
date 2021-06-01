@@ -9,6 +9,7 @@ from database.raw.configuration import raw_build
 from database.stage.configuration import stage_build
 # Database ETL utility module
 from database.raw.utilities import load_raw_data
+from database.stage.utilities import load_stage_data
 
 def options():
     """Function holding program option selections"""
@@ -23,6 +24,7 @@ def options():
     print('[6] View stage processing: type conversion, date refomatting, deduplication')
     print('[7] Convert processed data to CSV (Tweet, User, Date)')
     print('[8] Build Staging Database')
+    print('[9] Load processed stage data into stage database')
     print('\n[101] To reprint options')
     print('[0] To exit program')
 
@@ -73,6 +75,11 @@ while start == True:
         print("Building Stage Extraction Database.")
         # Pass a true value to initiate raw_build order
         stage_build(1)
+    if input_option == 9:
+        # Loads raw csv data into raw database
+        print("Loading processed stage data into Stage Database.")
+        load_stage_data()
+        print("Stage data loaded.")
 
     if input_option == 0:
         # Exits program

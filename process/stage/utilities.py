@@ -60,6 +60,6 @@ def integrate_staging_csv_conversion (frame):
 
     stage_csv_conversion(cut_columns(frame, ['tweet_id', 'tweet_text']), stage_tweet_csv)
 
-    stage_csv_conversion(cut_columns(frame, ['user_id']), stage_user_csv)
+    stage_csv_conversion(cut_columns(frame, ['user_id', 'tweet_id']), stage_user_csv)
 
-    stage_csv_conversion(cut_columns(frame, ['tweet_date']), stage_date_csv)
+    stage_csv_conversion(cut_columns(frame, ['tweet_date', 'tweet_id']), stage_date_csv)
