@@ -1,8 +1,0 @@
-twarc
-python-dotenv
-wordcloud
-SQLAlchemy
-SQLAlchemy-Utils
-petl
-arrow
-psycopg2

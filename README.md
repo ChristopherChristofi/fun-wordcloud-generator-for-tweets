@@ -15,23 +15,18 @@ Simple program that interacts with the twitter API. Retrieved using the twarc pa
 - psycopg2
 - python-dotenv
 - wordcloud
+- gensim
 
 ## Build Instructions
 
-Building in a Windows environment with WSL component. Create venv in both. (Some used scripts can be found
-in command_logs/)
+(Some used scripts can be found in command_logs/)
 
-1. **Install dependencies in Windows environment**
-```sh
-pip install -r constraints.txt
-```
-
-2. **Install dependencies in WSL environment**
+1. **Install dependencies**
 ```sh
 pip install -r requirements.txt
 ```
 
-3. **Quick - Run program**
+2. **Quick - Run program**
 
 ```sh
 python main.py
