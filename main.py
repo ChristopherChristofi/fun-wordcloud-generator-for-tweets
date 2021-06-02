@@ -23,8 +23,9 @@ def options():
     print('\nSTAGE Data Options:\n')
     print('[6] View stage processing: type conversion, date refomatting, deduplication')
     print('[7] Convert processed data to CSV (Tweet, User, Date)')
-    print('[8] Build Staging Database')
-    print('[9] Load processed stage data into stage database')
+    print('[8] Initiate NLP preprocess and csv conversion.')
+    print('[9] Build Staging Database')
+    print('[10] Load processed stage data into stage database')
     print('\n[101] To reprint options')
     print('[0] To exit program')
 
@@ -71,11 +72,15 @@ while start == True:
         commit_stage_processing(csv_convert=1, process=1)
         print("Converted to CSV complete.")
     if input_option == 8:
+        print("Initiating NLP processing.")
+        commit_stage_processing(csv_convert=0, transformation=1, process=1)
+        print("NLP complete.")
+    if input_option == 9:
         # Creates database
         print("Building Stage Extraction Database.")
         # Pass a true value to initiate raw_build order
         stage_build(1)
-    if input_option == 9:
+    if input_option == 10:
         # Loads raw csv data into raw database
         print("Loading processed stage data into Stage Database.")
         load_stage_data()

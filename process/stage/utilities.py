@@ -39,24 +39,32 @@ def tweet_deduplicate (frame):
 
     return deduplicated_table
 
+def tweet_text_lowercase (frame):
+
+    """Function that converts all the str text in a column to lowercase"""
+
+    lower_table = etl.convert(frame, 'tweet_text', 'lower')
+
+    return lower_table
+
 def stage_csv_conversion (data, path):
 
     """Function to convert processed to dataframe to CSV file."""
 
     etl.tocsv(data, path, encoding="utf8")
 
+def cut_columns (frame, parameters):
+
+    """Function to cut dataframe by input parameter column names."""
+
+    cut_table = etl.cut(frame, [col for col in parameters])
+
+    return cut_table
+
 def integrate_staging_csv_conversion (frame):
 
     """Holds the nested functions that implement the transformation of the processed
     staged data table frame, before converting each processed data frame to CSV"""
-
-    def cut_columns (frame, parameters):
-
-        """Function to cut dataframe by input parameter column names."""
-
-        cut_table = etl.cut(frame, [col for col in parameters])
-
-        return cut_table
 
     stage_csv_conversion(cut_columns(frame, ['tweet_id', 'tweet_text']), stage_tweet_csv)
 
