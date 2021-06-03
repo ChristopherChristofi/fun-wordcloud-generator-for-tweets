@@ -8,3 +8,4 @@ petl
 arrow
 psycopg2
 gensim
+pandas

@@ -7,6 +7,7 @@ Simple program that interacts with the twitter API. Retrieved using the twarc pa
 ## Dependencies:
 
 - petl
+- pandas
 - arrow
 - SQLAlchemy
 - SQLAlchemy-Utils
