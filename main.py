@@ -7,6 +7,7 @@ from process.stage.process import commit_stage_processing
 # Database configuration module
 from database.raw.configuration import raw_build
 from database.stage.configuration import stage_build
+from database.stage.nlp_configuration import mongodb_stage_build
 # Database ETL utility module
 from database.raw.utilities import load_raw_data
 from database.stage.utilities import load_stage_data
@@ -23,9 +24,10 @@ def options():
     print('\nSTAGE Data Options:\n')
     print('[6] View stage processing: type conversion, date refomatting, deduplication')
     print('[7] Convert processed data to CSV (Tweet, User, Date)')
-    print('[8] Initiate NLP preprocess and csv conversion.')
-    print('[9] Build Staging Database')
-    print('[10] Load processed stage data into stage database')
+    print('[8] Build PostgreSQL Staging Database for organised CSV datasets.')
+    print('[9] Load processed stage data into PostgreSQL stage database')
+    print('[10] Initiate NLP preprocess and csv conversion.')
+    print('[11] Load nlp processed stage data into initiated MongoDB stage database')
     print('\n[101] To reprint options')
     print('[0] To exit program')
 
@@ -72,20 +74,25 @@ while start == True:
         commit_stage_processing(csv_convert=1, process=1)
         print("Converted to CSV complete.")
     if input_option == 8:
-        print("Initiating NLP processing.")
-        commit_stage_processing(csv_convert=0, transformation=1, process=1)
-        print("NLP complete.")
-    if input_option == 9:
         # Creates database
-        print("Building Stage Extraction Database.")
+        print("Building PostgreSQL Stage Extraction Database.")
         # Pass a true value to initiate raw_build order
         stage_build(1)
-    if input_option == 10:
+    if input_option == 9:
         # Loads raw csv data into raw database
         print("Loading processed stage data into Stage Database.")
         load_stage_data()
         print("Stage data loaded.")
-
+    if input_option == 10:
+        print("Initiating NLP processing.")
+        commit_stage_processing(csv_convert=0, transformation=1, process=1)
+        print("NLP preprocessing complete.")
+    if input_option == 11:
+        # Creates database
+        print("Building MongoDB stage.")
+        # Pass a true value to initiate MongoDB build order and data loading
+        mongodb_stage_build(1)
+        print("NLP stage data loaded")
     if input_option == 0:
         # Exits program
         print("Exit")

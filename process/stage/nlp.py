@@ -43,7 +43,7 @@ def integrate_nlp_transformation(table):
         # Initiate NLP preprocessing on given data frame
         preprocessing_methods(
             # Limit datafram by provided header parameters
-            cut_columns(table, ['tweet_id', 'tweet_text'])
+            cut_columns(table, ['user_id', 'tweet_id', 'tweet_text'])
             )
             , stage_nlp_processed_csv
             )
