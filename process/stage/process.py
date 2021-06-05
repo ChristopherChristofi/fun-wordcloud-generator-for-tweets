@@ -48,7 +48,7 @@ def stage_processing(csv_convert, transformation, table):
 
     table = deduplication_process(table)
 
-    # table = lowercasing_process(table)
+    table = lowercasing_process(table)
 
     # row_count = etl.nrows(table)
 
