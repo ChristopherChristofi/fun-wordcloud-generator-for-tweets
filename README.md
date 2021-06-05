@@ -8,6 +8,7 @@ Simple program that interacts with the twitter API. Retrieved using the twarc pa
 
 - petl
 - pandas
+- pymongo
 - arrow
 - SQLAlchemy
 - SQLAlchemy-Utils
@@ -16,7 +17,7 @@ Simple program that interacts with the twitter API. Retrieved using the twarc pa
 - psycopg2
 - python-dotenv
 - wordcloud
-- gensim
+- nltk
 
 ## Build Instructions
 

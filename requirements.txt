@@ -7,5 +7,6 @@ SQLAlchemy-Utils
 petl
 arrow
 psycopg2
-gensim
+nltk
 pandas
+pymongo
