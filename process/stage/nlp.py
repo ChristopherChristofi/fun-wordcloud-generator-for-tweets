@@ -13,7 +13,7 @@ def preprocessing_methods(data):
 
         """Removes hyperink like texts."""
 
-        processed_data = re.sub(r'http\S+', '', data)
+        processed_data = re.sub(r'http\S+', ' ', data)
 
         return processed_data
 
@@ -21,7 +21,7 @@ def preprocessing_methods(data):
 
         """Removes twitter mentions and @ like tweet data strings."""
 
-        processed_data = re.sub("@\w+","",data)
+        processed_data = re.sub("@\w+"," ",data)
 
         return processed_data
 
@@ -29,7 +29,7 @@ def preprocessing_methods(data):
 
         """Removes individual strings less than two characters long."""
 
-        processed_data = re.sub(r'\s+\w{2}\s+', '', data)
+        processed_data = re.sub(r'\s+\w{2}\s+', ' ', data)
 
         return processed_data
 

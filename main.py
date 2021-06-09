@@ -28,6 +28,8 @@ def options():
     print('[9] Load processed stage data into PostgreSQL stage database')
     print('[10] Initiate NLP preprocess and csv conversion.')
     print('[11] Load nlp processed stage data into initiated MongoDB stage database')
+    print('\nPRODUCTION Data Options:\n')
+    print('[12] Generate Wordcloud')
     print('\n[101] To reprint options')
     print('[0] To exit program')
 
@@ -91,8 +93,15 @@ while start == True:
         # Creates database
         print("Building MongoDB stage.")
         # Pass a true value to initiate MongoDB build order and data loading
-        mongodb_stage_build(1)
+        mongodb_stage_build(1, 1, 0)
         print("NLP stage data loaded")
+    if input_option == 12:
+        # Loads stage data into wordcloud generator pipeline
+        print("Loading stage data into wordcloud generator.")
+        # Pass a true value to initiate MongoDB build order, data loading, wordcloud
+        mongodb_stage_build(1, 0, 1)
+        print("Wordcloud generated")
+
     if input_option == 0:
         # Exits program
         print("Exit")
