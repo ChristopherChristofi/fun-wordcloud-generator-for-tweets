@@ -2,6 +2,7 @@ jq
 twarc
 python-dotenv
 wordcloud
+matplotlib
 SQLAlchemy
 SQLAlchemy-Utils
 petl
